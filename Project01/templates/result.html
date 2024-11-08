@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Result{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h2 class="mb-4">Kết quả dự đoán</h2>
+
+    <p class="result-text">Dựa trên thông tin bạn đã cung cấp mức lương ước tính là:</p>
+    <p class="result-text">Model Linear Regression:</p>
+    <p class="display-5 text-primary">$<span id="predictedSalary">{{p01}}</span></p>
+    <p class="result-text">Model thư viện:</p>
+    <p class="display-5 text-primary">$<span id="predictedSalary">{{p02}}</span></p>
+
+    <p class="result-text">Đây là mức lương ước tính. Kinh nghiệm, kỹ năng và vị trí của bạn có thể ảnh hưởng đến mức
+        lương cuối cùng.</p>
+
+    <a href="{{url_for('index')}}" class="btn btn-custom">Trở về</a>
+</div>
+{% endblock%}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %} Salary Prediction Form {% endblock %}
+{% block content %}
+<h2 class="text-center mb-4 p-3">Dự án 1: Dự Đoán Mức Lương Dựa Trên Thuật Toán Linear Regression</h2>
+<div class="container">
+    <h2 class="text-center mb-2">Một vài thông tin của bạn </h2>
+    <p style="color: red;">Nếu thông tin nào không tiện chia sẻ hãy để trống.</p>
+    <form accept="{{url_for('index')}}" method="post">
+        <!-- Age -->
+        <div class="mb-3">
+            <label for="age" class="form-label">Độ tuổi</label>
+            <input name="age" type="number" class="form-control" id="age" placeholder="Nhập tuổi của bạn. Ví dụ 10, 20">
+        </div>
+
+        <!-- Gender -->
+        <div class="mb-3">
+            <label for="gender" class="form-label">Giới tính</label>
+            <select class="form-select" id="gender" name="gender">
+                <option selected value=None>Chọn giới tính</option>
+                {% for i in gender %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Education Level -->
+        <div class="mb-3">
+            <label for="education" class="form-label">Trình độ học vấn</label>
+            <select class="form-select" id="education" name="education">
+                <option selected value=None>Chọn trình độ học vấn</option>
+                {% for i in edus %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Job Title -->
+        <div class="mb-3">
+            <label for="jobTitle" class="form-label">Nghề nghiệp</label>
+            <select class="form-select" id="jobTitle" name="jobTitle">
+                <option selected value=None>Chọn nghề nghiệp</option>
+                {% for i in job_titles %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Years of Experience -->
+        <div class="mb-3">
+            <label for="experience" class="form-label">Số năm kinh nghiệm</label>
+            <input name="experience" type="number" class="form-control" id="experience"
+                placeholder="Số năm kinh nghiệm của bạn. Ví dụ: 1, 1.5, 2">
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+            <button type="submit" class="btn btn-custom">Dự đoán</button>
+        </div>
+    </form>
+</div>
+{% endblock%}
